@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@*@ViewBag.Title*@Ninja - 100% Bezpieczeństwa</title>
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/css/styles")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @RenderSection("styles", required: false)
+
+    <link rel="shortcut icon" href="@Url.Content("~/Content/css/images/favicon.ico")" />
+
+    <script type="text/javascript">
+        root_path = '@Url.Content("~/")';
+        //if (root_path.substring(root_path.length - 1, root_path.length) == '/') {
+        //    root_path = root_path.substring(0, root_path.length - 1);
+        //}
+    </script>
+
+
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div class="logowrogu">
+        <a href="http://www.poufnosc.pl" target="_blank"><img src="@Url.Content("~/Content/css/images/logo_poufnosc_dla_ninja_tlo.png")" alt="PL"></a>
+    </div>
+
+    @if (ViewContext.RouteData.Values["Controller"] == "Home") {
+    <div class="languages">
+        <a href="@Url.Content("~/SetLanguage/pl-PL")" target="_parent"><img src="@Url.Content("~/Content/css/images/flag_PL.png")" alt="PL"></a>
+        <a href="@Url.Content("~/SetLanguage/en-GB")" target="_parent"><img src="@Url.Content("~/Content/css/images/flag_EN.png")" alt="EN"></a>
+    </div>
+    }
+    else
+    {
+        <div class="languages inactive">
+            <a href="#" target="_parent"><img src="@Url.Content("~/Content/css/images/flag_PL.png")" alt="PL"></a>
+            <a href="#" target="_parent"><img src="@Url.Content("~/Content/css/images/flag_EN.png")" alt="EN"></a>
+        </div>
+    }
+    <div id="header">
+        <img style="margin-top: 15px;" src="@Url.Content("~/Content/css/images/NINJA.png")" alt="EC2" />
+    </div>
+    <div id="alert" style="display: none;">
+
+        @if (TempData.ContainsKey(EC2.ChatEngine.Message.Status.Error.ToString()))
+        {
+
+            <div class="message-error">
+                @Html.Raw(TempData[EC2.ChatEngine.Message.Status.Error.ToString()])
+            </div>
+        }
+
+        @if (TempData.ContainsKey(EC2.ChatEngine.Message.Status.Info.ToString()))
+        {
+
+            <div class="message-info">
+                @Html.Raw(TempData[EC2.ChatEngine.Message.Status.Info.ToString()])
+            </div>
+        }
+
+        @if (TempData.ContainsKey(EC2.ChatEngine.Message.Status.Warning.ToString()))
+        {
+
+            <div class="message-warning">
+                @Html.Raw(TempData[EC2.ChatEngine.Message.Status.Warning.ToString()])
+            </div>
+        }
+
+    </div>
+    <div id="content">
+
+        @RenderBody()
+        
+    </div>
+
+    <div id="footer_">
+        EC2 S.A. &copy; @DateTime.Now.Year
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryform")    
+    @Scripts.Render("~/bundles/site")
+    @RenderSection("scripts", required: false)
+
+
+
+</body>
+</html>
+
+
+

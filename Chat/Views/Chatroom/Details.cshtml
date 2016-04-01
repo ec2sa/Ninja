@@ -1,0 +1,50 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+@{
+	ViewBag.Title = "Chat " + Model.Chatroom.ChatroomName;
+}
+
+
+@{
+	Html.RenderPartial("maincontent");
+}
+
+<div id="PINDialog" style="display: none;">
+	adasd
+</div>
+
+<div id="dialogChat" style="display: none;" title="Dołącz do rozmowy" data-pin="@Model.PIN" data-room-id="@Model.roomId" data-room-name="@Model.Chatroom.ChatroomName" data-is-owner="@Model.IsOwner">
+	@{
+		Html.RenderPartial("Chat");
+	}
+</div>
+
+
+
+
+@if (string.IsNullOrWhiteSpace(Model.PIN))
+{
+    <div id="dialogJoin" style="display: none;" title="@Resources.LocalizedText.InitiationWindow_TitleJoin">
+        @{
+    Html.RenderPartial("Join", Model);
+        }
+    </div>
+}
+
+@section scripts
+{
+	<script src="@Url.Content("~/Scripts/chatroom_details.js")" type="text/javascript"></script>
+	@if (Model.isFile)
+	{
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('#fileID_@Model.FileId').click(function () {
+					window.open(root_path + 'Chatroom/' + $('#dialogChat').data('roomId') + '/DownFile' + '?PIN=' + $('#dialogChat').data('pin'));
+				});
+
+			    $('#progressbar > div').css('background', '#000 url(images/@(Resources.LocalizedText.Culture_)/time_.jpg) left center !important');
+			});
+        </script>
+
+	}
+}

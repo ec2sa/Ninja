@@ -1,0 +1,428 @@
+﻿@font-face
+{
+font-family: CustomFont;
+src: url(ArchivoNarrow-Regular.ttf);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #F6EFE5 url(images/tlo_gradient.jpg) no-repeat center center fixed;
+    font-family: CustomFont, Arial;
+}
+
+/*#main_upper, #main_bottom {
+    border: 1px solid #F00 !important;
+}
+#main_ul, #main_ur,  #main_bl,  #main_br {
+    border: 1px solid #000 !important;
+}*/
+
+#main_upper {
+    border: none;/*1px solid #F00;*/
+    width: 620px;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+}
+#main_ul {
+    border: none;/*1px solid #000;*/
+    width: 300px;
+    height: 210px;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+#main_ur {
+    border: none;/*1px solid #000;*/
+    width: 310px;
+    height: 190px;
+    float: right;
+    margin: 0;
+    padding: 20px 0 0 0;
+}
+#main_ur p {
+    margin: 8px 0 36px 65px;
+    padding: 0;
+    text-align: left;
+} 
+
+#main_bottom {
+    border: none;/*1px solid #F00;*/
+    width: 620px;
+    height: 225px;
+    margin: 0 auto;
+    text-align: center;
+} 
+#main_bl {
+    border: none;/*1px solid #000;*/
+    width: 300px;
+    height: 220px;
+    float: left;
+    margin: 0;
+    padding: 0;
+} 
+#main_br {
+    border: none;/*1px solid #000;*/
+    width: 310px;
+    height: 220px;
+    float: right;
+    margin: 0;
+    padding: 0;
+    background: url(images/logo_biale.png) center center no-repeat;
+}
+
+hr.white
+{
+    display:block;
+    border:none;
+    height:3px;
+    background: url('images/linia.png') center center no-repeat;
+}
+
+.chatbody {
+    background: url(images/tlo.jpg) repeat-x top center fixed;
+}
+
+input, button {
+    background: #444;
+    border: none;
+    color: lightgrey;
+    margin: 0px;
+    padding: 5px;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: 0 2px 4px rgb(71,71,71);
+}
+
+input[type="submit"], button {
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+    height: 40px;
+    font-size: 10pt;
+    padding-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: CustomFont, Arial;
+}
+
+#buttonAddSlot {
+    width: 204px;
+    height: 20px !important;
+    background: #356C80;
+    font-family: CustomFont, Arial;
+}
+
+input[type="text"], input[type="password"], textarea, select {
+    font-family: CustomFont, Arial !important;
+    background: #FFF !important;
+    color: #000 !important;
+}
+
+.KickButton {
+    height: 18px;
+    width: 19px;
+    background: #F00; /* Old browsers */
+    
+    color: #eee;
+    font-size: 8pt;
+    font-weight: bold;
+	text-align: center;
+}
+
+#FileUpload {
+    width: 204px;
+    height: 20px !important;
+    background: #356C80;
+    font-family: CustomFont, Arial;
+}
+
+.editor-field > input {
+    background: rgb(158,158,158);
+    border: none;
+    color: #eee;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: 0 2px 4px rgb(71,71,71);
+
+    font-family: CustomFont, Arial;
+}
+
+.editor-label {
+    color: #eee;
+    font-size: 12pt;
+    font-family: CustomFont, Arial;
+}
+
+.ui-dialog {
+    background: #000;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#646464', endColorstr='#646464'); /* IE */
+    /*Apply this class to some text to unlock the secrets of the third dimension!*/
+}
+.ui-dialog-titlebar {
+    border-radius: 0 !important;
+    border: none;
+    background: inherit;
+    font-family: CustomFont, Arial;
+    color: #EEE
+}
+.ui-dialog .ui-icon {
+    background-color: #FFF !important;
+}
+
+#header {
+    width: 100%;
+    height: 30px;
+    background: url(images/tlo_header.jpg);
+    color: #FFF;
+    text-align: center;
+    position: fixed;
+}
+
+#content {
+    margin: 0 auto;
+    padding-top: 40px;
+    vertical-align: central;
+}
+
+.chatroomcontainer {
+    margin-bottom: 10px;
+}
+
+#welcome {
+    margin: 0 auto;
+    width: 660px;
+}
+
+    #welcome > #nav {
+        float: left;
+    }
+
+        #welcome > #nav > p.h2h {
+            font-family: 'Times new roman';
+            font-style: italic;
+            font-size: 14pt;
+            color: #555;
+        }
+
+        #welcome > #nav > p.buttons > button {
+            /*height: 40px;*/
+        }
+
+    #welcome > div#text {
+        float: right;
+        width: 330px;
+        height: 400px;
+        font-family: 'Times new roman';
+        font-style: italic;
+        font-size: 8pt;
+        color: #555;
+        text-align: justify;
+    }
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: #222;
+    text-align: center;
+    color: #eee;
+    padding-top: 20px;
+}
+
+
+#room_info {
+    background: #ff6a00 url(images/tlo_footer.png);
+    width: 90%;
+    position: fixed;
+    margin-top: -10px;
+    height: 100px;
+    min-width: 600px;
+    color: #FFF;
+    /*Apply this class to some text to unlock the secrets of the third dimension!*/
+    font-family: CustomFont, Verdana, sans-serif;
+    line-height: 1em;
+    color: #fff9d6;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#chat-envelope {
+    width: 60px;
+    height: 43px;
+    background: url(images/logo_biale.png);
+    background-size: 100% auto;
+    float: left;
+    margin-right: 30px;
+    border-right: 1px solid #FFF;
+}
+.chat-header {
+    font-family: CustomFont, Arial;
+    font-size: 12pt;
+    color: #FFF;
+}
+
+#chat_room, #ChatWindow {
+    scrollbar-track-color: #F00 !important;
+    scrollbar-base-color : #ff00ff !important; 
+}
+
+::-webkit-scrollbar-track-piece  {
+background-color: #C2D2E4;
+}
+
+#chat_room {
+    font-family: CustomFont, Verdana, sans-serif;
+    line-height: 1em;
+    color: #fff9d6;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 16px;
+    padding-left: 0px;
+}
+
+#chat_message {
+    background: #3038c6;
+    position: fixed;
+    bottom: 0;
+    height: 35px;
+    width: 90%;
+    margin: 0 auto;
+    background: url(images/tlo_footer.png);
+    text-align: center;
+    color: #eee;
+    padding-top: 0px;
+}
+
+
+input#ChatMessage {
+    background: #999 fixed;
+    width: 98%;
+    border: none;
+    height: 25px;
+    color: white;
+    padding-left: 20px;
+    font-family: CustomFont, Verdana, sans-serif;
+    line-height: 1em;
+    color: #fff9d6;
+    font-weight: bold;
+    font-size: 12pt;
+    line-height: 16px;
+    padding-left: 15px;
+}
+
+#runAwayButton {
+    color: #FFF;
+    background: #356C80;
+    font-weight: bold;
+    font-size: 14px;
+    height: 30px;
+    width: 209px;
+
+    margin: 0 0 5px 0;
+    padding: 0 !important;
+}
+
+#progressbar {
+    width: 100%;
+    border-radius: 0 !important;
+    border: 5px solid #eee;
+    text-shadow: none !important;
+    background-color: #EEE !important;
+}
+.ui-progressbar {
+    /*background: #EEE !important;*/
+    border-radius: 0 !important;
+    text-shadow: none !important;
+    color: #000 !important;
+}
+.ui-progressbar-value {
+    background: #000 !important;
+}
+
+.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se.ui-icon-grip-diagonal-se {
+    background: #000 !important;
+    background-color: #000 !important;
+}
+
+#Users {
+    height: 100%;
+    width: 200px;
+    padding: 20px 20px 20px 25px;
+    /*Apply this class to some text to unlock the secrets of the third dimension!*/
+    font-size: 12pt;
+    font-family: CustomFont, Verdana, sans-serif;
+    line-height: 1em;
+    color: #fff9d6;
+    font-weight: bold;
+    font-size: 11px;
+    vertical-align: top;
+}
+
+.message-error, .error-message {
+    color: #FFF !important;
+    text-align: center;
+}
+
+.ui-dialog-buttonpane {
+    background: none;
+    border: none;
+}
+
+.ui-dialog-content {
+    color: #fff9d6;
+}
+
+#PINDialog > .ui-dialog-titlebar {
+    font-size:8px !important;
+    height: 20px;
+}
+
+p.admin {
+    color: #D00;
+}
+
+.chatmessage {
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.chatmessage_Message {
+    color: #fff9d6;
+}
+
+.chatmessage_Error {
+    color: #FF2020;
+}
+
+.chatmessage_Warning {
+    color: #ca7d20;
+}
+
+.chatmessage_Info {
+    color: #6488bf;
+}
+
+.chatmessage_User {
+    color: #00ff90;
+}
+
+.chatmessage_Error > .chatmessage_User {
+    color: #FF2020;
+}
+
+.chatmessage_User > .chatmessage_Warning {
+    color: #ca7d20;
+}
+
+#scroll_users {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only {
+    background: red !important;
+}

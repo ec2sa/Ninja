@@ -1,0 +1,29 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+
+@using (Html.BeginForm("Create", "Chatroom"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.Hidden("NewRoom", true)
+    <div class="editor-label">
+            @Resources.LocalizedText.InitiationWindow_Name
+        </div>
+        <div class="editor-field">
+          @Html.TextBox("Name")
+        </div>
+        <div class="editor-label">
+            @Resources.LocalizedText.InitiationWindow_Nick
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Nick")
+        </div>
+        
+        <p>
+            <input type="submit" value="@Resources.LocalizedText.InitiationWindow_CreateButton" />
+        </p>
+}
+
+
+

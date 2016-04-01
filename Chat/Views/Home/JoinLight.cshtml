@@ -1,0 +1,41 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+
+@using (Html.BeginForm("Join", "ChatroomLite"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+    <div class="editor-label">
+        Id pokoju
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.roomId,
+            new Dictionary<string, object>(){ 
+            {"style", "min-width: 300px;"}, 
+            {"data-val", "true"}, 
+            {"data-val-required","The Id pokoju field is required."  },
+            {"class","text-box"  }
+            })
+
+        <span class="field-validation-valid" data-valmsg-for="roomId" data-valmsg-replace="true"></span>
+    </div>
+
+    <div class="editor-label">
+        Nick
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("Nick")
+    </div>
+
+       
+
+    <p>
+        <input type="submit" value="Dołącz" />
+    </p>
+}
+
+
+

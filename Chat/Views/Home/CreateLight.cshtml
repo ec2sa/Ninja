@@ -1,0 +1,29 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+
+@using (Html.BeginForm("Create", "ChatroomLite"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.Hidden("NewRoom", true)
+    <div class="editor-label">
+            Nazwa
+        </div>
+        <div class="editor-field">
+          @Html.TextBox("Name")
+        </div>
+        <div class="editor-label">
+            Nick
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Nick")
+        </div>
+        
+        <p>
+            <input type="submit" value="Utwórz" />
+        </p>
+}
+
+
+

@@ -1,0 +1,45 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+@section styles{
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/lighter_chat.css")" />
+}
+
+@{
+    ViewBag.Title = "Chat " + Model.Chatroom.ChatroomName;
+}
+
+
+@{
+    Html.RenderPartial("maincontent");
+}
+
+<div id="PINDialog" style="display: none;">
+    adasd
+</div>
+
+<div id="dialogChat" style="display: none;" title="@Resources.LocalizedText.InitiationWindow_TitleJoin" data-pin="@Model.PIN" data-room-id="@Model.roomId" data-room-name="@Model.Chatroom.ChatroomName" data-is-owner="@Model.IsOwner">
+    @{
+        Html.RenderPartial("Chat");
+    }
+</div>
+
+
+
+<div id="footer">
+    [ BANNER ]
+</div>
+
+@if (string.IsNullOrWhiteSpace(Model.PIN))
+{
+    <div id="dialogJoin" style="display: none;" title="@Resources.LocalizedText.InitiationWindow_TitleJoin">
+        @{
+    Html.RenderPartial("Join", Model);
+        }
+    </div>
+}
+
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/ChatroomLite_details.js")" type="text/javascript"></script>
+}

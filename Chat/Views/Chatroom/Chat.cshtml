@@ -1,0 +1,103 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+
+<table border="0" style="width: 100%; height: 100%;">
+    <tr>
+        <td colspan="2" style="height: 50px;">
+            <div id="chat-envelope">
+
+            </div>
+            <div>
+                <div>
+                    <span class="chat-header">
+                        @Resources.LocalizedText.ChatWindow_ChatId
+                        &nbsp;
+                        @Html.DisplayFor(model => model.Chatroom.ChatroomID)
+                    </span>
+                </div>
+                <div>
+                    <span class="chat-header address">
+                        @Request.Url.AbsoluteUri
+                    </span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td id="chat_room">
+            <div style="height: 250px; overflow-y: auto; text-overflow: ellipsis;" id="ChatWindow">
+            </div>
+        </td>
+        <td id="Users">
+
+            @if (Model.IsOwner)
+            {
+                <h3>@Resources.LocalizedText.ChatWindow_SecurityLevel</h3>
+                <div id="statusDiv" title="Połączenie bezpieczne" style="margin 0 auto; margin-left: 50px; border: none; width: 100px; height: 16px; background: url(@Url.Content("~/Content/css/images/lights_green.png")) center center; background-size: 100% 100%;">
+                    &nbsp;
+                </div>
+            }
+            <div id="scroll_users">
+                <h3>@Resources.LocalizedText.ChatWindow_Users</h3>
+                <div id="UsersDiv"><table id="UsersTable"></table></div>
+
+                @if (Model.IsOwner)
+                {
+                    <button id="buttonAddSlot" disabled="disabled" tabindex="-1">@Resources.LocalizedText.ChatWindow_AddMember</button>
+                    <br />
+                }
+
+
+                <hr />
+                <div>
+                    @using (Html.BeginForm("UploadFile", "Chatroom", FormMethod.Post, new { enctype = "multipart/form-data", id = "UploadForm", style = "padding-top: 5px; display: " + (@Model.isFile ? "none" : "block") }))
+                    {
+                        <input type="hidden" value=@Model.PIN name="PIN" />
+                        <input id="FileStream" type="file" name="FileStream" class="ui-corner-all" hidden="hidden" />
+                        <br />
+                        <button type="button" tabindex="-1" name="Submit" id="FileUpload">@Resources.LocalizedText.ChatWindow_UploadFile (max 4MB)</button>
+                    }
+
+                    <table id="Files" class="-webkit-file-upload-button">
+                        @if (Model.isFile)
+                        {
+                            <tr><td id="fileID_@Model.FileId" style="cursor:pointer;"> @Model.File</td><td><button id="DelFile" style="cursor:pointer;" class="KickButton" name="Usuń" tabindex="-1">x</button></td></tr>
+
+                        }
+                    </table>
+
+                </div>
+            </div>
+            <div @*style="position: absolute; bottom: 60px; right: 30px;"*@>
+                @if (Model.IsOwner)
+                {
+                    using (Html.BeginForm("DeleteRoom", "Chatroom", null))
+                    {
+                        <input id="runAwayButton" tabindex="-1" type="submit" value="@Resources.LocalizedText.ChatWindow_CloseChat" />
+                        @Html.HiddenFor(p => p.PIN);
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("Leave", "Chatroom", new { @style = "width: 100px;" }))
+                    {
+                        <input id="runAwayButton" tabindex="-1" style="width: 200px;" type="submit" value="@Resources.LocalizedText.ChatWindow_CloseChat" />
+                        @Html.HiddenFor(p => p.PIN);
+                    @Html.HiddenFor(p => p.Chatroom.ChatroomID);
+                    }
+                }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="height: 50px;">
+            @Html.TextBox("ChatMessage", null, new { })
+        </td>
+        <td>
+            @if (Model.IsOwner)
+            {
+                <div class="buttonExtend" @if (Model.IsOwner) { <text> title="@Resources.LocalizedText.ChatWindow_ExtendTimeHint" </text>  } id="progressbar" style="@if(Model.IsOwner){<text>cursor: pointer; </text>} width: 200px; height: 25px; margin-left: 25px; background: url(@Url.Content("~/Content/css/images/" + Resources.LocalizedText.Culture_ + "/time.jpg")) center center;"></div>
+            }
+        </td>
+    </tr>
+</table>

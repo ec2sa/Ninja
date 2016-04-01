@@ -1,0 +1,23 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+
+@using (Html.BeginForm("Join", "ChatroomLight"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        
+        <div class="editor-label">
+            Nick
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Nick")
+        </div>
+
+        <p>
+            <input type="submit" value="Dołącz" />
+        </p>
+}
+
+
+

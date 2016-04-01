@@ -1,0 +1,49 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+
+@using (Html.BeginForm("Join", "Chatroom"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+    <div class="editor-label">
+        @Resources.LocalizedText.InitiationWindow_PIN
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.PIN)
+        @Html.ValidationMessageFor(model => model.PIN)
+    </div>
+
+    <div class="editor-label">
+        @Resources.LocalizedText.InitiationWindow_RoomId
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.roomId,
+            new Dictionary<string, object>(){ 
+            {"style", "min-width: 300px;"}, 
+            {"data-val", "true"}, 
+            {"data-val-required","The Id pokoju field is required."  },
+            {"class","text-box"  }
+            })
+
+        <span class="field-validation-valid" data-valmsg-for="roomId" data-valmsg-replace="true"></span>
+    </div>
+
+    <div class="editor-label">
+        Nick
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("Nick")
+    </div>
+
+       
+
+    <p>
+        <input type="submit" value="@Resources.LocalizedText.InitiationWindow_JoinButton" />
+    </p>
+}
+
+
+

@@ -1,0 +1,129 @@
+﻿@{
+	ViewBag.Title = "Main Page";
+}
+
+
+<div id="dialogJoin" style="display: none;" title="@Resources.LocalizedText.InitiationWindow_TitleJoin">
+    @{
+        Html.RenderPartial("Join");
+    }
+</div>
+
+
+<div id="dialogCreate" style="display: none;" title="@Resources.LocalizedText.InitiationWindow_TitleNew">
+    @{
+        Html.RenderPartial("Create");
+    }
+</div>
+
+<div id="dialogLightJoin" style="display: none;" title="@Resources.LocalizedText.InitiationWindow_TitleJoin">
+    @{
+        Html.RenderPartial("JoinLight");
+    }
+</div>
+
+
+<div id="dialogLightCreate" style="display: none;" title="@Resources.LocalizedText.InitiationWindow_TitleNew">
+    @{
+        Html.RenderPartial("CreateLight");
+    }
+</div>
+
+
+@{
+	Html.RenderPartial("maincontent");
+}
+
+<div class="commercial">
+    <hr class="white" />
+    <center>
+        <a href="http://demo.ec2.pl/AdServerService/AD/URL?id=12" target="_blank">
+            <img id="imgPreview" width="970" height="250" src="http://demo.ec2.pl/AdServerService/AD?&Id=12" alt="Ad">
+        </a>
+    </center>
+</div>
+
+@section Scripts
+    {
+
+	
+
+	<script>
+
+		$(function () {
+
+			$("#openerJoin").click(function () {
+				$("#dialogJoin").dialog("open");
+			});
+
+			$("#openerLightJoin").click(function () {
+				$("#dialogLightJoin").dialog("open");
+			});
+
+			$("#openerCreate").click(function () {
+				$("#dialogCreate").dialog("open");
+			});
+
+			$("#openerLightCreate").click(function () {
+				$("#dialogLightCreate").dialog("open");
+			});
+
+			$("#dialogCreate").dialog({
+				autoOpen: false,
+				modal: true,
+				resizable: false,
+				show: {
+					effect: "blind",
+					duration: "fast"
+				},
+				hide: {
+					effect: "blind",
+					duration: "fast"
+				}
+			});
+
+			$("#dialogLightCreate").dialog({
+				autoOpen: false,
+				modal: true,
+				resizable: false,
+				show: {
+					effect: "blind",
+					duration: "fast"
+				},
+				hide: {
+					effect: "blind",
+					duration: "fast"
+				}
+			});
+			$("#dialogJoin").dialog({
+				autoOpen: false,
+				modal: true,
+				resizable: false,
+				minWidth: 380,
+				show: {
+					effect: "blind",
+					duration: "fast"
+				},
+				hide: {
+					effect: "blind",
+					duration: "fast"
+				}
+			});
+
+			$("#dialogLightJoin").dialog({
+				autoOpen: false,
+				modal: true,
+				minWidth: 380,
+				resizable: false,
+				show: {
+					effect: "blind",
+					duration: "fast"
+				},
+				hide: {
+					effect: "blind",
+					duration: "fast"
+				}
+			});
+		});
+	</script>
+}

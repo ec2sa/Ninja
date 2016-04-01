@@ -1,0 +1,92 @@
+﻿@model EC2.Chat.Models.ChatroomViewModel
+
+<table border="0" style="width: 100%; height: 100%;">
+    <tr>
+        <td colspan="2" style="height: 50px;">
+            <div id="chat-envelope">
+
+            </div>
+            <div>
+                <div>
+                    <span class="chat-header">
+                        Id chat'u:
+                        &nbsp;
+                        @Html.DisplayFor(model => model.Chatroom.ChatroomID)
+                    </span>
+                </div>
+                <div>
+                    <span class="chat-header">
+                        @Request.Url.AbsoluteUri
+                    </span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td id="chat_room">
+            <div style="height: 250px; overflow-y: auto; text-overflow: ellipsis;" id="ChatWindow">
+            </div>
+        </td>
+        <td id="Users">
+            <h2>Uczestnicy</h2>
+            <div id="UsersDiv">
+            </div>
+
+            <div style="position: absolute; bottom: 60px; right: 28px;">
+                @if (Model.IsOwner)
+                {
+                    using (Html.BeginForm("DeleteRoom", "ChatroomLite", new { @style = "width: 100px;" }))
+                    {
+                    <input id="runAwayButton" style="width: 200px;" type="submit" value="Zamknij Chat" />
+                    @Html.HiddenFor(p => p.PIN);
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("Leave", "ChatroomLite", new { @style = "width: 100px;" }))
+                    {
+                    <input id="runAwayButton" style="width: 200px;" type="submit" value="Opuść chat" />
+                    @Html.HiddenFor(p => p.PIN);
+                    @Html.HiddenFor(p => p.Chatroom.ChatroomID);
+                    }
+                }
+@* <button style="height: 20px; width: 150px;" id="buttonExtend">Przedłuż</button>*@
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="height: 50px;">
+            @Html.TextBox("ChatMessage", null, new { })
+        </td>
+        <td>
+            <div class="buttonExtend" @if(Model.IsOwner){<text>title="Kliknij, aby wydłużyć czas"</text>} id="progressbar" style="@if(Model.IsOwner){<text>cursor: pointer; </text>} width: 200px; height: 25px; margin-left: 25px; background: url(@Url.Content("~/Content/css/images/time.jpg")) center center;">
+                @*<div class="progress-label">Ładowanie...</div>*@
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+@*<div style="margin: 0 auto; width: 90%; background: #999 fixed;">
+    <div id="room_info">
+        <span style="font-size: 14pt;">#2# - @Model.Chatroom.ChatroomName</span><br />
+        Pokój
+    <br />
+        <br />
+
+        <div>
+            <div class="display-label">
+            </div>
+        </div>
+    </div>
+    <div id="chat_room">
+    </div>
+    <div id="chat_message">
+        <div class="editor-field">
+            @Html.TextBox("ChatMessage", null, new { })
+        </div>
+    </div>
+</div>*@

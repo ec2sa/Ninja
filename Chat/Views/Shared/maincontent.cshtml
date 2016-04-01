@@ -1,0 +1,119 @@
+﻿
+<div id="main_upper">
+    <div id="main_ul">
+        <img src="@Url.Content("~/Content/css/images/logo_1.png")" alt="Ninja" /><br />
+        <img src="@Url.Content("~/Content/css/images/cien.png")" alt="Shadow" />
+    </div>
+    <div id="main_ur">
+        <img src="@Url.Content("~/Content/css/images/1_2_3.png")" alt="123" style="float: left;" />
+        <p>@Resources.LocalizedText.FrontPage_Instruction_1</p>
+        <p>@Resources.LocalizedText.FrontPage_Instruction_2</p>
+        <p>@Resources.LocalizedText.FrontPage_Instruction_3</p>
+    </div>
+</div>
+
+<hr class="white" />
+<div id="main_bottom">
+    <div id="main_bl">
+        <p class="buttons">
+            <input type="image" src="@Url.Content("~/Content/css/images/" + @Resources.LocalizedText.Culture_ + "/button1.png")" style="background: none;" alt="Rozpocznij rozmowę" id="openerCreate" />
+        </p>
+    </div>
+    <div id="main_br">
+        <p class="buttons">
+            <input type="image" src="@Url.Content("~/Content/css/images/" + @Resources.LocalizedText.Culture_ + "/button2.png")" style="background: none;" alt="Dołącz do rozmowy" id="openerJoin" />
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+@section Scripts
+    {
+
+    <script>
+
+        $(function () {
+
+
+            $("#dialogJoin").dialog({
+                autoOpen: false,
+                modal: true,
+                minWidth: 380,
+                show: {
+                    effect: "blind",
+                    duration: "fast"
+                },
+                hide: {
+                    effect: "blind",
+                    duration: "fast"
+                }
+            });
+
+            $("#dialogLightJoin").dialog({
+                autoOpen: false,
+                modal: true,
+                minWidth: 380,
+                show: {
+                    effect: "blind",
+                    duration: "fast"
+                },
+                hide: {
+                    effect: "blind",
+                    duration: "fast"
+                }
+            });
+
+            $("#openerJoin").click(function () {
+                $("#dialogJoin").dialog("open");
+            });
+
+            $("#openerLightJoin").click(function () {
+                $("#dialogLightJoin").dialog("open");
+            });
+
+            $("#dialogCreate").dialog({
+                autoOpen: false,
+                modal: true,
+                show: {
+                    effect: "blind",
+                    duration: "fast"
+                },
+                hide: {
+                    effect: "blind",
+                    duration: "fast"
+                }
+            });
+
+            $("#dialogLightCreate").dialog({
+                autoOpen: false,
+                modal: true,
+                show: {
+                    effect: "blind",
+                    duration: "fast"
+                },
+                hide: {
+                    effect: "blind",
+                    duration: "fast"
+                }
+            });
+
+            $("#openerCreate").click(function () {
+                $("#dialogCreate").dialog("open");
+            });
+
+            $("#openerLightCreate").click(function () {
+                $("#dialogLightCreate").dialog("open");
+            });
+        });
+
+
+    </script>
+}
